@@ -94,15 +94,17 @@ const Header = () => {
         </div>
       </header>
 
-      <style jsx>{`
-        @keyframes marquee {
-          0% { transform: translate3d(100%, 0, 0); }
-          100% { transform: translate3d(-100%, 0, 0); }
-        }
-        .animate-marquee {
-          animation: marquee 15s linear infinite;
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes marquee {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+          }
+          .animate-marquee {
+            animation: marquee 15s linear infinite;
+          }
+        `
+      }} />
     </>
   );
 };
