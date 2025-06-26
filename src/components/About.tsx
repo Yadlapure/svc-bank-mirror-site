@@ -1,81 +1,113 @@
 
-import { Award, Users, Globe, Clock } from 'lucide-react';
-
 const About = () => {
-  const stats = [
-    { icon: Users, number: "50,000+", label: "Happy Customers" },
-    { icon: Globe, number: "25+", label: "Branch Locations" },
-    { icon: Award, number: "30+", label: "Years of Service" },
-    { icon: Clock, number: "24/7", label: "Customer Support" }
-  ];
-
   return (
-    <section id="about" className="py-20 bg-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-bold text-blue-900 mb-6">About SVC Cooperative Bank</h2>
-            <p className="text-lg text-gray-700 mb-6">
-              Established in 1993, SVC Cooperative Bank Ltd has been serving the community with 
-              dedication and trust for over three decades. We are committed to providing innovative 
-              banking solutions while maintaining the personal touch that sets us apart.
-            </p>
-            <p className="text-lg text-gray-700 mb-8">
-              Our mission is to empower individuals and businesses with accessible, reliable, and 
-              customer-centric banking services that contribute to their financial growth and success.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <div className="w-4 h-4 bg-blue-600 rounded-full mr-4"></div>
-                <span className="text-gray-700">RBI Licensed Cooperative Bank</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-4 h-4 bg-blue-600 rounded-full mr-4"></div>
-                <span className="text-gray-700">DICGC Insured Deposits</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-4 h-4 bg-blue-600 rounded-full mr-4"></div>
-                <span className="text-gray-700">ISO 9001:2015 Certified</span>
-              </div>
+            <h2 className="text-3xl font-bold text-blue-800 mb-6">About SVC Cooperative Bank Ltd</h2>
+            <div className="prose prose-lg text-gray-700">
+              <p className="mb-4">
+                SVC Cooperative Bank Ltd was established in 1993 with a vision to provide quality banking services 
+                to the common man. Over the past three decades, we have grown from a small cooperative institution 
+                to a prominent multi-state scheduled cooperative bank.
+              </p>
+              <p className="mb-4">
+                Licensed by the Reserve Bank of India and regulated under the Banking Regulation Act, 1949, 
+                we are committed to maintaining the highest standards of banking operations while keeping our 
+                cooperative spirit alive.
+              </p>
+              <p className="mb-6">
+                Our bank is managed by a team of experienced professionals who understand the local needs and 
+                aspirations of our customers. We believe in building long-term relationships based on trust, 
+                transparency, and mutual respect.
+              </p>
             </div>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center shadow-lg">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="text-blue-600" size={28} />
-                </div>
-                <div className="text-3xl font-bold text-blue-900 mb-2">{stat.number}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">
-          <h3 className="text-2xl font-bold text-blue-900 mb-6 text-center">Why Choose SVC Bank?</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="text-green-600" size={28} />
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="text-2xl font-bold text-blue-800">₹500+ Cr</div>
+                <div className="text-sm text-gray-600">Total Business</div>
               </div>
-              <h4 className="text-xl font-bold text-blue-900 mb-2">Trusted Service</h4>
-              <p className="text-gray-600">Three decades of reliable banking with community focus</p>
+              <div className="bg-green-50 p-4 rounded-lg">
+                <div className="text-2xl font-bold text-green-800">50,000+</div>
+                <div className="text-sm text-gray-600">Account Holders</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="text-purple-600" size={28} />
+
+            <div className="space-y-3">
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-blue-600 rounded-full mr-3"></div>
+                <span className="text-gray-700">RBI Licensed Multi-State Scheduled Cooperative Bank</span>
               </div>
-              <h4 className="text-xl font-bold text-blue-900 mb-2">Personal Touch</h4>
-              <p className="text-gray-600">Personalized service with dedicated relationship managers</p>
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-blue-600 rounded-full mr-3"></div>
+                <span className="text-gray-700">DICGC Insured Deposits up to ₹5 Lakhs</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-blue-600 rounded-full mr-3"></div>
+                <span className="text-gray-700">Member of Indian Banks' Association (IBA)</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-blue-600 rounded-full mr-3"></div>
+                <span className="text-gray-700">ISO 9001:2015 Certified Quality Management System</span>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="text-orange-600" size={28} />
+          </div>
+
+          <div className="space-y-6">
+            {/* Chairman's Message */}
+            <div className="bg-gradient-to-r from-blue-800 to-blue-600 text-white p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-3">Chairman's Message</h3>
+              <p className="text-blue-100 text-sm leading-relaxed mb-4">
+                "At SVC Cooperative Bank, we are committed to serving our members and the community with 
+                dedication and integrity. Our focus remains on providing accessible banking services while 
+                maintaining financial prudence and regulatory compliance."
+              </p>
+              <div className="text-sm">
+                <div className="font-semibold">Shri. Rajesh Kumar</div>
+                <div className="text-blue-200">Chairman, Board of Directors</div>
               </div>
-              <h4 className="text-xl font-bold text-blue-900 mb-2">Modern Banking</h4>
-              <p className="text-gray-600">Latest technology with traditional banking values</p>
+            </div>
+
+            {/* Vision & Mission */}
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-bold text-blue-800 mb-4">Our Vision & Mission</h3>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Vision</h4>
+                  <p className="text-sm text-gray-600">
+                    To be the most preferred cooperative bank, known for innovative banking solutions, 
+                    customer service excellence, and community development.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Mission</h4>
+                  <p className="text-sm text-gray-600">
+                    To provide comprehensive banking services with personalized attention, leveraging 
+                    technology while maintaining our cooperative values and contributing to societal development.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Awards & Recognition */}
+            <div className="bg-yellow-50 p-6 rounded-lg">
+              <h3 className="text-xl font-bold text-blue-800 mb-4">Awards & Recognition</h3>
+              <div className="space-y-2">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-yellow-600 rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">Best Cooperative Bank Award 2023</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-yellow-600 rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">Excellence in Digital Banking 2022</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-yellow-600 rounded-full mr-3"></div>
+                  <span className="text-sm text-gray-700">Community Service Recognition 2021</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

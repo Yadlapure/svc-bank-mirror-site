@@ -1,77 +1,125 @@
 
-import { CreditCard, Smartphone, Home, Car, Briefcase, PiggyBank } from 'lucide-react';
-
 const Services = () => {
   const services = [
     {
-      icon: CreditCard,
-      title: "Savings Account",
-      description: "High interest savings accounts with flexible terms and easy access to your funds.",
-      features: ["4.5% Interest Rate", "No Minimum Balance", "Free Debit Card"]
+      title: "Savings Bank Account",
+      description: "High interest savings account with minimum balance of Rs. 1000. Enjoy free cheque book, debit card and internet banking facilities.",
+      features: ["4.50% p.a. Interest", "Free Debit Card", "SMS Banking", "Internet Banking"],
+      bgColor: "bg-blue-50",
+      iconColor: "bg-blue-600"
     },
     {
-      icon: Smartphone,
-      title: "Digital Banking",
-      description: "Complete banking solutions available 24/7 through our mobile app and internet banking.",
-      features: ["Mobile Banking", "Online Transfers", "Bill Payments"]
+      title: "Fixed Deposit",
+      description: "Secure your future with our attractive fixed deposit schemes. Flexible tenure from 1 month to 10 years with competitive interest rates.",
+      features: ["Up to 7.25% p.a.", "Flexible Tenure", "Loan Against FD", "Auto Renewal"],
+      bgColor: "bg-green-50",
+      iconColor: "bg-green-600"
     },
     {
-      icon: Home,
-      title: "Home Loans",
-      description: "Competitive home loan rates with flexible repayment options for your dream home.",
-      features: ["Low Interest Rates", "Quick Approval", "Flexible Tenure"]
+      title: "Recurring Deposit",
+      description: "Build your savings systematically with our recurring deposit scheme. Start with as low as Rs. 100 per month.",
+      features: ["Monthly Investment", "High Returns", "Flexible Amount", "Loan Facility"],
+      bgColor: "bg-yellow-50",
+      iconColor: "bg-yellow-600"
     },
     {
-      icon: Car,
-      title: "Vehicle Loans",
-      description: "Easy financing for cars, bikes, and commercial vehicles with attractive interest rates.",
-      features: ["90% Financing", "Fast Processing", "No Hidden Charges"]
+      title: "Home Loan",
+      description: "Fulfill your dream of owning a home with our attractive home loan schemes. Quick processing and competitive interest rates.",
+      features: ["8.75% p.a. onwards", "Up to 85% Finance", "Quick Approval", "Flexible Repayment"],
+      bgColor: "bg-purple-50",
+      iconColor: "bg-purple-600"
     },
     {
-      icon: Briefcase,
-      title: "Business Banking",
-      description: "Comprehensive business banking solutions to help your business grow and prosper.",
-      features: ["Business Accounts", "Trade Finance", "Cash Management"]
+      title: "Vehicle Loan",
+      description: "Drive your dream car or bike with our easy vehicle loan schemes. New and used vehicle financing available.",
+      features: ["9.25% p.a. onwards", "90% Finance", "Fast Processing", "No Hidden Charges"],
+      bgColor: "bg-red-50",
+      iconColor: "bg-red-600"
     },
     {
-      icon: PiggyBank,
-      title: "Fixed Deposits",
-      description: "Secure your future with our fixed deposit schemes offering attractive returns.",
-      features: ["High Returns", "Flexible Terms", "Auto Renewal"]
+      title: "Business Loan",
+      description: "Grow your business with our comprehensive business loan solutions. Working capital and term loans available.",
+      features: ["Competitive Rates", "Quick Disbursement", "Flexible Terms", "Minimal Documentation"],
+      bgColor: "bg-indigo-50",
+      iconColor: "bg-indigo-600"
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-blue-900 mb-4">Our Banking Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover a complete range of banking products and services designed to meet all your financial needs
+    <section id="services" className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-blue-800 mb-4">Our Products & Services</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Discover our comprehensive range of banking products designed to meet all your financial needs. 
+            From savings accounts to loans, we have solutions for every stage of your financial journey.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-8 hover:bg-blue-50 transition-colors group">
-              <div className="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-200 transition-colors">
-                <service.icon className="text-blue-600" size={32} />
+            <div key={index} className={`${service.bgColor} rounded-lg p-6 hover:shadow-lg transition-shadow`}>
+              <div className={`${service.iconColor} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
+                <div className="w-6 h-6 bg-white rounded"></div>
               </div>
-              <h3 className="text-2xl font-bold text-blue-900 mb-4">{service.title}</h3>
-              <p className="text-gray-600 mb-6">{service.description}</p>
-              <ul className="space-y-2">
+              
+              <h3 className="text-xl font-bold text-gray-800 mb-3">{service.title}</h3>
+              <p className="text-gray-600 mb-4 text-sm leading-relaxed">{service.description}</p>
+              
+              <div className="space-y-2 mb-4">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-700">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                  <div key={featureIndex} className="flex items-center text-sm text-gray-700">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                     {feature}
-                  </li>
+                  </div>
                 ))}
-              </ul>
-              <button className="mt-6 text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                Learn More →
-              </button>
+              </div>
+              
+              <div className="flex space-x-2">
+                <button className="text-blue-600 text-sm font-medium hover:text-blue-800">
+                  Learn More →
+                </button>
+                <button className="text-green-600 text-sm font-medium hover:text-green-800">
+                  Apply Now →
+                </button>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Additional Services */}
+        <div className="mt-12 bg-white rounded-lg p-8 shadow-sm">
+          <h3 className="text-2xl font-bold text-blue-800 mb-6 text-center">Other Banking Services</h3>
+          <div className="grid md:grid-cols-4 gap-6 text-center">
+            <div className="p-4">
+              <div className="bg-blue-100 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <div className="w-8 h-8 bg-blue-600 rounded"></div>
+              </div>
+              <h4 className="font-semibold text-gray-800">RTGS/NEFT</h4>
+              <p className="text-sm text-gray-600">Fast & Secure Money Transfer</p>
+            </div>
+            <div className="p-4">
+              <div className="bg-green-100 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <div className="w-8 h-8 bg-green-600 rounded"></div>
+              </div>
+              <h4 className="font-semibold text-gray-800">Locker Facility</h4>
+              <p className="text-sm text-gray-600">Safe & Secure Storage</p>
+            </div>
+            <div className="p-4">
+              <div className="bg-yellow-100 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <div className="w-8 h-8 bg-yellow-600 rounded"></div>
+              </div>
+              <h4 className="font-semibold text-gray-800">DD/Cheque</h4>
+              <p className="text-sm text-gray-600">Demand Draft & Pay Orders</p>
+            </div>
+            <div className="p-4">
+              <div className="bg-purple-100 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <div className="w-8 h-8 bg-purple-600 rounded"></div>
+              </div>
+              <h4 className="font-semibold text-gray-800">Insurance</h4>
+              <p className="text-sm text-gray-600">Life & General Insurance</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
