@@ -4,6 +4,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('home');
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -11,6 +12,7 @@ const Header = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
+    setActiveTab(sectionId);
   };
 
   return (
@@ -28,7 +30,7 @@ const Header = () => {
 
         {/* Main header */}
         <div className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-3">
               {/* Logo and Bank Name */}
               <div className="flex items-center flex-shrink-0">
@@ -72,31 +74,64 @@ const Header = () => {
                 <div className="flex items-center space-x-8">
                   <button 
                     onClick={() => scrollToSection('home')}
-                    className="text-blue-600 hover:text-blue-700 font-medium px-3 py-2 border-b-2 border-blue-600 transition-colors text-sm"
+                    className={`font-medium px-3 py-2 border-b-2 transition-colors text-sm ${
+                      activeTab === 'home' 
+                        ? 'text-blue-600 border-blue-600' 
+                        : 'text-gray-700 hover:text-blue-600 border-transparent hover:border-blue-600'
+                    }`}
                   >
                     Home
                   </button>
                   <button 
                     onClick={() => scrollToSection('about')}
-                    className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm"
+                    className={`font-medium px-3 py-2 border-b-2 transition-colors text-sm ${
+                      activeTab === 'about' 
+                        ? 'text-blue-600 border-blue-600' 
+                        : 'text-gray-700 hover:text-blue-600 border-transparent hover:border-blue-600'
+                    }`}
                   >
                     About Us
                   </button>
                   <button 
                     onClick={() => scrollToSection('products')}
-                    className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm"
+                    className={`font-medium px-3 py-2 border-b-2 transition-colors text-sm ${
+                      activeTab === 'products' 
+                        ? 'text-blue-600 border-blue-600' 
+                        : 'text-gray-700 hover:text-blue-600 border-transparent hover:border-blue-600'
+                    }`}
                   >
                     Products & Services
                   </button>
-                  <button className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm">
+                  <button 
+                    onClick={() => scrollToSection('rates')}
+                    className={`font-medium px-3 py-2 border-b-2 transition-colors text-sm ${
+                      activeTab === 'rates' 
+                        ? 'text-blue-600 border-blue-600' 
+                        : 'text-gray-700 hover:text-blue-600 border-transparent hover:border-blue-600'
+                    }`}
+                  >
                     Interest Rates
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('directors')}
+                    className={`font-medium px-3 py-2 border-b-2 transition-colors text-sm ${
+                      activeTab === 'directors' 
+                        ? 'text-blue-600 border-blue-600' 
+                        : 'text-gray-700 hover:text-blue-600 border-transparent hover:border-blue-600'
+                    }`}
+                  >
+                    Directors
                   </button>
                   <button className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm">
                     Branch Locator
                   </button>
                   <button 
                     onClick={() => scrollToSection('contact')}
-                    className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm"
+                    className={`font-medium px-3 py-2 border-b-2 transition-colors text-sm ${
+                      activeTab === 'contact' 
+                        ? 'text-blue-600 border-blue-600' 
+                        : 'text-gray-700 hover:text-blue-600 border-transparent hover:border-blue-600'
+                    }`}
                   >
                     Contact Us
                   </button>
@@ -122,31 +157,52 @@ const Header = () => {
                   <div className="flex flex-col space-y-1 pt-2">
                     <button 
                       onClick={() => scrollToSection('home')}
-                      className="text-blue-600 font-medium py-3 px-4 bg-blue-50 text-left text-sm"
+                      className={`font-medium py-3 px-4 text-left text-sm ${
+                        activeTab === 'home' ? 'text-blue-600 bg-blue-50' : 'text-gray-700'
+                      }`}
                     >
                       Home
                     </button>
                     <button 
                       onClick={() => scrollToSection('about')}
-                      className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm"
+                      className={`font-medium py-3 px-4 text-left text-sm ${
+                        activeTab === 'about' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50'
+                      }`}
                     >
                       About Us
                     </button>
                     <button 
                       onClick={() => scrollToSection('products')}
-                      className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm"
+                      className={`font-medium py-3 px-4 text-left text-sm ${
+                        activeTab === 'products' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50'
+                      }`}
                     >
                       Products & Services
                     </button>
-                    <button className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm">
+                    <button 
+                      onClick={() => scrollToSection('rates')}
+                      className={`font-medium py-3 px-4 text-left text-sm ${
+                        activeTab === 'rates' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
                       Interest Rates
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('directors')}
+                      className={`font-medium py-3 px-4 text-left text-sm ${
+                        activeTab === 'directors' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      Directors
                     </button>
                     <button className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm">
                       Branch Locator
                     </button>
                     <button 
                       onClick={() => scrollToSection('contact')}
-                      className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm"
+                      className={`font-medium py-3 px-4 text-left text-sm ${
+                        activeTab === 'contact' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50'
+                      }`}
                     >
                       Contact Us
                     </button>
