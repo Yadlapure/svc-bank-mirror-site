@@ -7,9 +7,11 @@ const Header = () => {
   return (
     <>
       {/* Top notification bar */}
-      <div className="bg-red-600 text-white py-1 px-4 text-center text-sm">
+      <div className="bg-red-600 text-white py-1 px-4 text-center text-sm overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <marquee>Important: Internet Banking services will be temporarily unavailable on Sunday from 2:00 AM to 6:00 AM for system maintenance.</marquee>
+          <div className="animate-marquee whitespace-nowrap">
+            Important: Internet Banking services will be temporarily unavailable on Sunday from 2:00 AM to 6:00 AM for system maintenance.
+          </div>
         </div>
       </div>
 
@@ -91,6 +93,16 @@ const Header = () => {
           </nav>
         </div>
       </header>
+
+      <style jsx>{`
+        @keyframes marquee {
+          0% { transform: translate3d(100%, 0, 0); }
+          100% { transform: translate3d(-100%, 0, 0); }
+        }
+        .animate-marquee {
+          animation: marquee 15s linear infinite;
+        }
+      `}</style>
     </>
   );
 };
