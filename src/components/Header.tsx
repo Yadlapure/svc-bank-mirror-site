@@ -15,134 +15,173 @@ const Header = () => {
 
   return (
     <>
-      {/* Top notification bar */}
-      <div className="bg-blue-800 text-white py-2 px-4 text-center text-sm">
-        <div className="max-w-7xl mx-auto">
-          <div className="animate-marquee whitespace-nowrap">
-            Dear Demat Account holders, Please update your CKYC No., duly filled-in KRA Form (available at the Branch), Mobile No. & Email ID at your nearest SVC Bank Branch.
+      {/* Fixed container for both notification and header */}
+      <div className="fixed top-0 w-full z-50 bg-white shadow-md">
+        {/* Top notification bar */}
+        <div className="bg-blue-800 text-white py-2 px-4 text-center text-sm overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <div className="animate-marquee whitespace-nowrap">
+              Dear Demat Account holders, Please update your CKYC No., duly filled-in KRA Form (available at the Branch), Mobile No. & Email ID at your nearest SVC Bank Branch.
+            </div>
+          </div>
+        </div>
+
+        {/* Main header */}
+        <div className="bg-white border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex items-center justify-between py-3">
+              {/* Logo and Bank Name */}
+              <div className="flex items-center flex-shrink-0">
+                <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                  <span className="font-bold text-sm">SVC</span>
+                </div>
+                <div className="hidden sm:block">
+                  <h1 className="text-lg font-bold text-blue-800">SVC COOPERATIVE BANK LTD</h1>
+                  <p className="text-xs text-gray-600">Established 1993 | RBI License No. 12345</p>
+                </div>
+                <div className="sm:hidden">
+                  <h1 className="text-sm font-bold text-blue-800">SVC BANK</h1>
+                </div>
+              </div>
+
+              {/* Contact Info - Desktop Only */}
+              <div className="hidden lg:flex items-center space-x-6 text-sm">
+                <div className="text-center">
+                  <div className="font-semibold text-blue-800">Customer Care</div>
+                  <div className="text-gray-600">1800-123-4567</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-semibold text-blue-800">Email</div>
+                  <div className="text-gray-600">info@svcbank.co.in</div>
+                </div>
+              </div>
+
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden p-2 rounded text-gray-700 hover:bg-gray-100"
+              >
+                {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+              </button>
+            </div>
+
+            {/* Navigation Bar */}
+            <div className="border-t border-gray-100">
+              {/* Desktop Navigation */}
+              <nav className="hidden lg:flex items-center justify-between py-2">
+                <div className="flex items-center space-x-8">
+                  <button 
+                    onClick={() => scrollToSection('home')}
+                    className="text-blue-600 hover:text-blue-700 font-medium px-3 py-2 border-b-2 border-blue-600 transition-colors text-sm"
+                  >
+                    Home
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('about')}
+                    className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm"
+                  >
+                    About Us
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('products')}
+                    className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm"
+                  >
+                    Products & Services
+                  </button>
+                  <button className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm">
+                    Interest Rates
+                  </button>
+                  <button className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm">
+                    Branch Locator
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors text-sm"
+                  >
+                    Contact Us
+                  </button>
+                </div>
+
+                {/* Login Buttons - Desktop */}
+                <div className="flex items-center space-x-3">
+                  <button className="bg-green-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-green-700 transition-colors">
+                    Internet Banking
+                  </button>
+                  <button className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition-colors">
+                    Mobile Banking
+                  </button>
+                  <button className="border border-gray-300 text-gray-700 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors">
+                    Login
+                  </button>
+                </div>
+              </nav>
+
+              {/* Mobile Navigation */}
+              {isMenuOpen && (
+                <div className="lg:hidden pb-4 border-t border-gray-200 bg-white">
+                  <div className="flex flex-col space-y-1 pt-2">
+                    <button 
+                      onClick={() => scrollToSection('home')}
+                      className="text-blue-600 font-medium py-3 px-4 bg-blue-50 text-left text-sm"
+                    >
+                      Home
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('about')}
+                      className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm"
+                    >
+                      About Us
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('products')}
+                      className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm"
+                    >
+                      Products & Services
+                    </button>
+                    <button className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm">
+                      Interest Rates
+                    </button>
+                    <button className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm">
+                      Branch Locator
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('contact')}
+                      className="text-gray-700 py-3 px-4 hover:bg-gray-50 text-left text-sm"
+                    >
+                      Contact Us
+                    </button>
+                    
+                    {/* Mobile Contact Info */}
+                    <div className="px-4 py-2 bg-gray-50 text-xs">
+                      <div className="mb-1">
+                        <span className="font-semibold text-blue-800">Customer Care:</span>
+                        <span className="text-gray-600 ml-1">1800-123-4567</span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-blue-800">Email:</span>
+                        <span className="text-gray-600 ml-1">info@svcbank.co.in</span>
+                      </div>
+                    </div>
+
+                    {/* Mobile Login Buttons */}
+                    <div className="px-4 py-2 space-y-2">
+                      <button className="w-full bg-green-600 text-white py-2 px-4 rounded text-sm hover:bg-green-700 transition-colors">
+                        Internet Banking
+                      </button>
+                      <button className="w-full bg-blue-600 text-white py-2 px-4 rounded text-sm hover:bg-blue-700 transition-colors">
+                        Mobile Banking
+                      </button>
+                      <button className="w-full border border-gray-300 text-gray-700 py-2 px-4 rounded text-sm hover:bg-gray-50 transition-colors">
+                        Login
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Main header */}
-      <header className="bg-white shadow-md fixed top-12 w-full z-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between py-4">
-            {/* Logo and Bank Name */}
-            <div className="flex items-center">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white w-12 h-12 rounded-full flex items-center justify-center mr-3">
-                <span className="font-bold text-lg">SVC</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-blue-800">SVC CO-OPERATIVE BANK LTD</h1>
-                <p className="text-xs text-gray-600">Established 1991</p>
-              </div>
-            </div>
-
-            {/* Navigation - Desktop */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="text-green-600 hover:text-green-700 font-medium px-3 py-2 border-b-2 border-green-600 transition-colors"
-              >
-                Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('products')}
-                className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors"
-              >
-                Products
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors"
-              >
-                Make Payment
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors"
-              >
-                Offers
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors"
-              >
-                Ways to Bank
-              </button>
-              <button className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors">
-                Auction Notices
-              </button>
-              <button className="text-gray-700 hover:text-blue-600 font-medium px-3 py-2 hover:border-b-2 hover:border-blue-600 transition-colors">
-                Help & Support
-              </button>
-            </nav>
-
-            {/* Login Button - Desktop */}
-            <div className="hidden lg:flex">
-              <button className="bg-green-600 text-white px-6 py-2 rounded border border-green-600 hover:bg-green-700 transition-colors font-medium">
-                Login
-              </button>
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded text-gray-700 hover:bg-gray-100"
-            >
-              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="lg:hidden pb-4 border-t border-gray-200 bg-white">
-              <div className="flex flex-col space-y-2 pt-4">
-                <button 
-                  onClick={() => scrollToSection('home')}
-                  className="text-green-600 font-medium py-2 px-4 bg-green-50 text-left"
-                >
-                  Home
-                </button>
-                <button 
-                  onClick={() => scrollToSection('products')}
-                  className="text-gray-700 py-2 px-4 hover:bg-gray-50 text-left"
-                >
-                  Products
-                </button>
-                <button 
-                  onClick={() => scrollToSection('services')}
-                  className="text-gray-700 py-2 px-4 hover:bg-gray-50 text-left"
-                >
-                  Make Payment
-                </button>
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className="text-gray-700 py-2 px-4 hover:bg-gray-50 text-left"
-                >
-                  Offers
-                </button>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="text-gray-700 py-2 px-4 hover:bg-gray-50 text-left"
-                >
-                  Ways to Bank
-                </button>
-                <button className="text-gray-700 py-2 px-4 hover:bg-gray-50 text-left">
-                  Auction Notices
-                </button>
-                <button className="text-gray-700 py-2 px-4 hover:bg-gray-50 text-left">
-                  Help & Support
-                </button>
-                <button className="bg-green-600 text-white py-2 px-4 rounded mx-4 mt-2 hover:bg-green-700 transition-colors">
-                  Login
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </header>
 
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -151,7 +190,7 @@ const Header = () => {
             100% { transform: translate3d(-100%, 0, 0); }
           }
           .animate-marquee {
-            animation: marquee 20s linear infinite;
+            animation: marquee 25s linear infinite;
           }
         `
       }} />

@@ -3,7 +3,7 @@ import Carousel from './Carousel';
 
 const Hero = () => {
   return (
-    <section id="home" className="bg-gray-50 py-16 mt-24">
+    <section id="home" className="bg-gray-50 py-16 mt-32">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -12,7 +12,7 @@ const Hero = () => {
               Welcome to SVC Co-operative Bank
             </h1>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Your trusted banking partner since 1991. Experience personalized banking services 
+              Your trusted banking partner since 1993. Experience personalized banking services 
               with competitive interest rates and modern banking solutions tailored for your needs.
             </p>
             
